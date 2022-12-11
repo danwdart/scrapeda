@@ -6,7 +6,7 @@ then
 else
     dA=`wget -O- "$2"`
 fi
- 
+
 echo $dA | xmlstarlet sel -t \
      -m "//item" \
      -o "wget -P" \
@@ -15,7 +15,7 @@ echo $dA | xmlstarlet sel -t \
      -v "./media:content/@url" \
      -o "'" \
      -n  | sh
- 
+
 NEXT=`echo $dA | xmlstarlet sel -T -t -v "//atom:link[@rel='next']/@href"`
 if [ "" != "$NEXT" ]
 then
